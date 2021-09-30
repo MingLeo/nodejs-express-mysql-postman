@@ -19,8 +19,11 @@ var mysqlConnection = mysql.createConnection({
 });
 
 mysqlConnection.connect((err) => {
-  if (!err) console.log("Connection Established Successfully");
-  else console.log("Connection Failed!" + JSON.stringify(err, undefined, 2));
+  if (!err) console.log("Successfully connect to Database");
+  else
+    console.log(
+      "Failed to connect to Database." + JSON.stringify(err, undefined, 2)
+    );
 });
 
 module.exports = mysqlConnection;
