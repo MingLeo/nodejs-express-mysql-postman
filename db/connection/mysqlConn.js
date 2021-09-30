@@ -9,6 +9,14 @@ const mysql = require("mysql");
 //   multipleStatements: true,
 // });
 
+// mysqlConnection.connect((err) => {     //this line only needed for .createConnection(),  no nd for createPool()  see https://www.tabnine.com/code/javascript/functions/mysql/createConnection &  https://www.tabnine.com/code/javascript/functions/mysql/createPool
+//   if (!err) console.log("Successfully connect to Database");
+//   else
+//     console.log(
+//       "Failed to connect to Database." + JSON.stringify(err, undefined, 2)
+//     );
+// });
+
 //configure to connect to Production Heroku ClearDB Addon Service
 // var mysqlConnection = mysql.createConnection({
 var mysqlConnection = mysql.createPool({
@@ -18,14 +26,6 @@ var mysqlConnection = mysql.createPool({
   password: "7ec0d467",
   database: "heroku_dcee101247ad51a", //<-------Production MySQL (DB schema) hosted on Heroku ClearDB !!
   multipleStatements: true,
-});
-
-mysqlConnection.connect((err) => {
-  if (!err) console.log("Successfully connect to Database");
-  else
-    console.log(
-      "Failed to connect to Database." + JSON.stringify(err, undefined, 2)
-    );
 });
 
 module.exports = mysqlConnection;
