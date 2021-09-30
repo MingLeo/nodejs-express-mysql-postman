@@ -47,7 +47,8 @@ $(document).ready(function () {
 
   function getAllUsers() {
     $(".custom-table-style1").show(); //=D Yup this exactly what I want!
-    fetch("http://localhost:4000/learners/getAll") //fetch the api
+    // fetch("http://localhost:4000/learners/getAll") //fetch the api
+    fetch("https://node-express-mysql-be.herokuapp.com/learners/getAll") //fetch the api
       .then((res) => res.json())
       .then((data) => {
         // let output = '<h2 class="mb-4">Users</h2>';          //return normal html. WORKs, but no WOW factor!
@@ -101,7 +102,8 @@ $(document).ready(function () {
 
     // var url = "http://localhost:4000/learners/" + $.param({ id: paramId })   //jquery way of setting parameter in query string!
     // var url = "http://localhost:4000/learners/" + paramId;
-    const url = `http://localhost:4000/learners/${paramId}`;
+    // const url = `http://localhost:4000/learners/${paramId}`;
+    const url = `https://node-express-mysql-be.herokuapp.com/learners/${paramId}`;
 
     console.log("url: ", url); //url:  http://localhost:4000/learners/id=1
 
@@ -171,13 +173,14 @@ $(document).ready(function () {
     if (paramId1 === "" && paramId2 === "") {
       alert(`input fields blank! Please insert input field!`);
     } else {
-      const url = `http://localhost:4000/learners/?id1=${paramId1}&id2=${paramId2}`; //jquery way of setting parameter in query string!
-      const url1 =
-        "http://localhost:4000/learners/?" +
-        $.param({ id1: paramId1, id2: paramId2 });
+      // const url = `http://localhost:4000/learners/?id1=${paramId1}&id2=${paramId2}`;
+      const url = `https://node-express-mysql-be.herokuapp.com/learners/?id1=${paramId1}&id2=${paramId2}`; //old fashion traditional hardcoded way to set parameter in HTTP URL request string!
+      // const url1 =
+      //   "http://localhost:4000/learners/?" +
+      //   $.param({ id1: paramId1, id2: paramId2 });   //jquery way of setting parameter in query string!
 
       console.log("url: ", url);
-      console.log("url1: ", url1);
+      // console.log("url1: ", url1);
 
       fetch(url)
         .then((res) => res.json()) //parse JSON, so no nd to do JSON.parse()
@@ -255,7 +258,8 @@ $(document).ready(function () {
       // const url = "http://localhost:4000/learners/" + $.param({ id: paramId })   // jquery way of setting parameter in query string!   Cannot use parameterized, cos this Api & also the stored Proc doesnt handle/accept parameters!
       //                                                                            // =D yup const work. Const can concat, just dun allow reassignment! First time assign can concat.
       // const url = "http://localhost:4000/learners/" + paramId;
-      const url = `http://localhost:4000/learners/${paramId}`;
+      // const url = `http://localhost:4000/learners/${paramId}`;
+      const url = `https://node-express-mysql-be.herokuapp.com/learners/${paramId}`;
 
       console.log("url: ", url); //url:  http://localhost:4000/learners/id=1
 
@@ -312,13 +316,14 @@ $(document).ready(function () {
     if (paramId1 === "" && paramId2 === "") {
       alert(`input fields blank! Please insert input field!`);
     } else {
-      const url = `http://localhost:4000/learners/?id1=${paramId1}&id2=${paramId2}`;
-      const url1 =
-        "http://localhost:4000/learners/?" +
-        $.param({ id1: paramId1, id2: paramId2 });
+      // const url = `http://localhost:4000/learners/?id1=${paramId1}&id2=${paramId2}`;
+      const url = `https://node-express-mysql-be.herokuapp.com/learners/?id1=${paramId1}&id2=${paramId2}`;
+      // const url1 =
+      //   "http://localhost:4000/learners/?" +
+      //   $.param({ id1: paramId1, id2: paramId2 });
 
       console.log("url: ", url); //url:  http://localhost:4000/learners/?id1=1&id2=3
-      console.log("url1: ", url1); //url1:  http://localhost:4000/learners/?id1=1&id2=3
+      // console.log("url1: ", url1); //url1:  http://localhost:4000/learners/?id1=1&id2=3
 
       fetch(url, {
         //fetch API   https://medium.com/meta-box/how-to-send-get-and-post-requests-with-javascript-fetch-api-d0685b7ee6ed
@@ -383,7 +388,8 @@ $(document).ready(function () {
     if (name === "" && email === "" && courseId === "") {
       alert(`input fields blank! Please insert input field!`);
     } else {
-      fetch("http://localhost:4000/learners/", {
+      // fetch("http://localhost:4000/learners/", {
+      fetch("https://node-express-mysql-be.herokuapp.com/learners/", {
         //fetch API   https://medium.com/meta-box/how-to-send-get-and-post-requests-with-javascript-fetch-api-d0685b7ee6ed
         method: "POST",
         headers: {
@@ -450,7 +456,8 @@ $(document).ready(function () {
     if (name === "" && email === "" && courseId === "") {
       alert(`input fields blank! Please insert input field!`);
     } else {
-      fetch("http://localhost:4000/learners/", {
+      // fetch("http://localhost:4000/learners/", {
+      fetch("https://node-express-mysql-be.herokuapp.com/learners/", {
         //fetch API   https://medium.com/meta-box/how-to-send-get-and-post-requests-with-javascript-fetch-api-d0685b7ee6ed
         method: "PUT",
         headers: {
