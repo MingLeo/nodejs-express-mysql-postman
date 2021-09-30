@@ -10,7 +10,9 @@ const mysql = require("mysql");
 // });
 
 //configure to connect to Production Heroku ClearDB Addon Service
-var mysqlConnection = mysql.createConnection({
+// var mysqlConnection = mysql.createConnection({
+var mysqlConnection = mysql.createPool({
+  //for Production we want to create a pool of connections (connection Pooling) so that there will always be 1 thread avail to service sql query.  Won't drop/loss the DB connection!
   host: "us-cdbr-east-04.cleardb.com",
   user: "bb0af4d8b6fe5d",
   password: "7ec0d467",
