@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetch API Sandbox</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script defer src="../js/script.js"></script>
+</head>
+
+<body>
+  <div class="container">   <!--wrap within bootstrap container, in order to use the css grid layout format!-->
+    <!--bootstrap css grid format-->
+    <h1 class="display-4 mb-4">Fetch API Sandbox</h1>
+    <div class="d-flex flex-row">
+      <!-- <div class="d-flex flex-row">   align horizontally across-->
+      <!-- <div class="d-flex flex-column">   align vertically-->
+      <!-- <button class="btn btn-primary mr-5" id="getText">Get Text</button> -->
+      <button id="addRow">Add new row</button>
+
+      <button class="btn btn-primary mr-5" id="getUsers">Get All Users</button>
+      <!-- <button class="btn btn-primary mr-5" id="get1User">Get 1 User</button>
+      <button class="btn btn-primary mr-5" id="update1User">Update 1 User</button>
+      <button class="btn btn-primary mr-5" id="delete1User">Update 1 User</button>
+      <button class="btn btn-primary mr-5" id="Submit1User">Update 1 User</button> -->
+      <!-- <button class="btn btn-success mr-3" id="getUsers">Get JSON</button> -->
+      <!-- <button class="btn btn-warning mr-1" id="getPosts">Get API DATA</button> -->
+    </div>
+
+    <hr>
+
+
+
+    <table id="example" class="display" style="width:100%">
+      <thead>
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+          <th>Column 3</th>
+          <th>Column 4</th>
+          <th>Column 5</th>
+        </tr>
+      </thead>
+    </table>
+
+
+
+    <!-- Boostrap datatable does not support dynamic row insertion. fK THIS SHIT.-->
+    <!-- use jQuery datatable's row.add() API.  IT FREAKING WORKS! FINALLY!  =D -->
+    <table id="UsersTable" class="display custom-table-style1" style="width:100%">
+      <thead>
+        <tr>
+          <th>#Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Course ID</th>
+        </tr>
+      </thead>
+    </table>
+
+
+    <!--normal html-->
+    <!-- <div id="output"></div> -->
+    <!--useful trick! Assign a div section to display out output content here!-->
+
+
+
+    <form id="display1User">
+      <!--Form, cannot include placeholder, so nd a title section-->
+      <section>
+        <h2 class="form">Get 1 User</h2>
+      </section>
+      <!--Form title-->
+      <div class="form-group">
+        <!--Form-field-->
+        <input type="text" id="UserId1" class="form-control" placeholder="learner_Id">
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+
+    <br>
+    <div id='display1'></div>
+    <br>
+
+
+    <form id="displayMultipleUsers">
+      <!--Form, cannot include placeholder, so nd a title section-->
+      <section>
+        <h2 class="form">Get Multiple Users (range)</h2>
+      </section>
+      <!--Form title-->
+      <div class="form-group">
+        <!--Form-field-->
+        <input type="text" id="UserId7" class="form-control" placeholder="learner_Id:  from">
+      </div>
+      <div class="form-group">
+        <!--Form-field-->
+        <input type="text" id="UserId8" class="form-control" placeholder="learner_Id:  to">
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+
+    <br>
+    <div id="displayMultiple"></div>
+    <table id="UsersTable1" class="display custom-table-style2" style="width:100%">
+      <thead>
+        <tr>
+          <th>#Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Course ID</th>
+        </tr>
+      </thead>
+    </table>
+    <br>
+
+    <form id="delete1User">
+      <!--Form, cannot include placeholder, so nd a title section-->
+      <section>
+        <h2 class="form">Delete 1 User</h2>
+      </section>
+      <!--Form title-->
+      <div class="form-group">
+        <!--Form-field-->
+        <input type="text" id="UserId2" class="form-control" placeholder="learner_Id">
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+
+    <br>
+    <div id='delete1'></div>
+    <br>
+
+    <form id="deleteMultipleUsers">
+      <!--Form, cannot include placeholder, so nd a title section-->
+      <section>
+        <h2 class="form">Delete Multiple Users (range)</h2>
+      </section>
+      <!--Form title-->
+      <div class="form-group">
+        <!--Form-field-->
+        <span><text>from</text></span>
+        <span><input type="text" id="UserId5" class="form-control" placeholder="learner_Id:  from"></span>
+      </div>
+      <div class="form-group">
+        <!--Form-field-->
+        <span><text>to</text></span>
+        <span><input type="text" id="UserId6" class="form-control" placeholder="learner_Id:  to"></span>
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+
+    <br>
+    <div id='deleteMultiple'></div>
+    <br>
+
+    <form id="submit1User">
+      <!--Form, cannot include placeholder, so nd a title section-->
+      <section>
+        <h2 class="form">Submit 1 User</h2>
+      </section>
+      <!--Form title-->
+      <div class="form-group">
+        <!--Form-field-->
+        <input type="text" id="UserId3" class="form-control" placeholder="Id" value=0 disabled>
+      </div>
+      <div class="form-group">
+        <!--Form-field-->
+        <textarea id="name1" class="form-control" placeholder="Name"></textarea>
+      </div>
+      <div class="form-group">
+        <!--Form-field-->
+        <!-- <textarea id="email1" class="form-control" placeholder="Email"></textarea> -->
+        <input type="email" id="email1" class="form-control" placeholder="Email"></textarea>
+      </div>
+      <div class="form-group">
+        <!--Form-field-->
+        <textarea id="courseId1" class="form-control" placeholder="Course ID"></textarea>
+      </div>
+      <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+
+    <br>
+    <div id='submit1'></div>
+    <br>
+
+    <form id="update1User">
+      <!--Form, cannot include placeholder, so nd a title section-->
+      <section>
+        <h2 class="form">Update 1 User</h2>
+        </divsection>
+        <!--Form title-->
+        <div class="form-group">
+          <!--Form-field-->
+          <input type="text" id="UserId4" class="form-control" placeholder="Id">
+        </div>
+        <div class="form-group">
+          <!--Form-field-->
+          <textarea id="name2" class="form-control" placeholder="Name"></textarea>
+        </div>
+        <div class="form-group">
+          <!--Form-field-->
+          <!-- <textarea id="email2" class="form-control" placeholder="Email"></textarea> -->
+          <input type="email" id="email2" class="form-control" placeholder="Email"></textarea>
+        </div>
+        <div class="form-group">
+          <!--Form-field-->
+          <textarea id="courseId2" class="form-control" placeholder="Course ID"></textarea>
+        </div>
+        <input type="submit" class="btn btn-secondary" value="Submit">
+    </form>
+
+    <br><br>
+    <div id='update1'></div>
+    <br>
+
+  </div>
+
+
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+
+  <script src="../js/script.js"></script> -->
+</body>
+
+</html>

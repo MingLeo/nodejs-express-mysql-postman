@@ -1,0 +1,30 @@
+.form {
+  margin: 12px 0px 25px;
+  /* top margin is 25px
+      right and left margins are 50px
+      bottom margin is 75px */
+
+  /* margin: 12px 0px 25px 0px; */
+  /* top margin is 12px
+      right margin is 0px
+      bottom margin is 25px
+      left margin is 0px */
+}
+
+/* .dataTable {
+      table-layout: fixed;
+      width: 100%
+    } */
+
+.custom-table-style1 {
+  display: none;
+}
+.custom-table-style2 {
+  display: none;
+}
+
+.cssImg {
+  display: block;
+  width: 15%;
+  height: 10%;
+}
