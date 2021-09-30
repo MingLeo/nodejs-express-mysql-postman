@@ -1,11 +1,20 @@
 const mysql = require("mysql");
 
-//MySql details
+//Connect to Local Development MySql details
+// var mysqlConnection = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "password",
+//   database: "learner", //<-------local MySQL (DB schema)!
+//   multipleStatements: true,
+// });
+
+//configure to connect to Production Heroku ClearDB Addon Service
 var mysqlConnection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "learner", //<-------nd to specify the database(schema) that you gonna use!
+  host: "us-cdbr-east-04.cleardb.com",
+  user: "bb0af4d8b6fe5d",
+  password: "7ec0d467",
+  database: "heroku_dcee101247ad51a", //<-------Production MySQL (DB schema) hosted on Heroku ClearDB !!
   multipleStatements: true,
 });
 
