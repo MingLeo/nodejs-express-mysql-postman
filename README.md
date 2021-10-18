@@ -14,10 +14,10 @@ Public EndPoints   (see 'routes\api\learners.js' for list of all exposed api end
     
 /GET      /getAll    
 /GET      /:id=__ (1)    
-/GET      /:id1=___&id2=___   (range)    
+/GET      /:id1=___&amp;id2=___   (range)    
     
 /DELETE   /:id=___  (1)    
-/DELETE   /:id=___&id2=___ (range)    
+/DELETE   /:id=___&amp;id2=___ (range)    
     
     
 /POST      / (1)    
