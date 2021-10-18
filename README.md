@@ -25,7 +25,7 @@ Public EndPoints   (see 'routes\api\learners.js' for list of all exposed api end
 /PUT       / (1)    
     
     
-Created a static Boostraped page indexAll.html for a visual GUI to test ALL the REST endpoints above!   (visit link: https://node-express-mysql-be.herokuapp.com/ to try it out!    
+Created a static page indexAll.html (using Bootstrap & jquery Datatable) for a visual GUI to test ALL the REST endpoints above & populate out the results onto the page for purpose of visualization!   (visit link: https://node-express-mysql-be.herokuapp.com/ to try it out!)   
    OR    
 Alternatively, Test endpoints with Postman!    
     
