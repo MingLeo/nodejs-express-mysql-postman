@@ -10,20 +10,24 @@ list of common commands to issue in git bash terminal!:
  $ heroku config | grep CLEARDB_DATABASE_URL    -- grab the clear db prod DB link!
 
 
-EndPoints   (see 'routes\api\learners.js' for list of all exposed api endpoints by express server!)
+Public EndPoints   (see 'routes\api\learners.js' for list of all exposed api endpoints by express server!)
 
-/GET      /getAll    /:id (1)    / (range)
+/GET      /getAll    
+/GET      /:id=__ (1)
+/GET      /:id1=___&id2=___   (range)
 
-/DELETE              /:id (1) / (range)
+/DELETE   /:id=___  (1)
+/DELETE   /:id=___&id2=___ (range)
+
 
 /POST      / (1)
 
 /PUT       / (1)
 
 
-Created a static page indexAll.html to test these API endpoints.   endpoint path ('/')   (see 'app.js' file)
+Created a static Boostraped page indexAll.html for a visual GUI to test ALL the REST endpoints above!   (visit link: https://node-express-mysql-be.herokuapp.com/ to try it out!
    OR
-Test api endpoints with Postman!
+Alternatively, Test endpoints with Postman!
 
 
 Prod DB: MySQL - Hosted on Heroku's ClearDB database-as-a-service!
